@@ -9,4 +9,4 @@ class Aluno(Pessoa):
         self.nota = nota
 
     def atuacao(self):
-        print(self.nome, "está na escola Hangar")
+        print(self.nome, "está matriculado na escola Hangar")
