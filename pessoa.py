@@ -7,5 +7,10 @@ class Pessoa():
         print("Nome:", self.nome)
         print("Data de nascimento:", self.data_na)
 
+    def atuacao(self):
+        print(self.nome, "está na escola Hangar")
+
+
+
     
 

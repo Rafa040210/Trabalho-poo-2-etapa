@@ -1,21 +1,34 @@
-from datetime
+#from datetime
+from turma import Turma
+from sistema import Sistema
+from aluno import Aluno
+from professor import Professor
+
 
 print("Sistema Educacional de Escola de Hangar")#colocar cor
 
-turma1_exemplo = Turma()
-turma2_exemplo = Turma()
+Sistema = Sistema(todas_turmas= [], todos_alunos= [], todos_professores= [])
 
-prof1_exemplo = Professor()
-prof2_exemplo = Professor()
+#Sistema.cadastrar_professor(passar os parametros)
 
-aluno1_0_exemplo = Aluno()
-aluno1_1_exemplo = Aluno()
-aluno1_2_exemplo = Aluno()
-aluno1_3_exemplo = Aluno()
-aluno1_4_exemplo = Aluno()
 
-aluno2_0_exemplo = Aluno()
-aluno2_1_exemplo = Aluno()
-aluno2_2_exemplo = Aluno()
-aluno2_3_exemplo = Aluno()
-aluno2_4_exemplo = Aluno()
+
+#Fazendo a lógica do fatiamento da turma
+#acho melhor fazer no main
+
+#Primeiro fazer a lógica de colocar os alunos na lista
+
+Sistema.todas_turma = []
+turma_atual = Turma("Turma 1", "1")
+
+#for Aluno in Sistema.todos_alunos:
+    #if len(turma_atual.alunos) == 4:
+        #todas_turma.append(turma_atual)
+        #A = len(todas_turma) + 1
+        #B = 1 =+ 1
+        #turma_atual = Turma("Turma", {A}, {B})
+
+
+    #Sistema.todas_turma.append(Aluno)
+
+    #Sistema.todas_turma.append(turma_atual)
