@@ -10,8 +10,8 @@ class Sistema():
         self.todos_alunos = []
         self.todos_professores = []
 
-    def cadastrar_aluno(self, Aluno):
-        self.todos_alunos.append(Aluno)
+    def cadastrar_aluno(self, aluno):
+        self.todos_alunos.append(aluno)
 
     def cadastrar_professor(self, Professor):
         self.todos_professores.append(Professor)
@@ -27,3 +27,20 @@ class Sistema():
                 return Turma
             else:
                 print("Turma não encontrada!")
+
+    def dar_nota(self, RA, valor):
+            for aluno in self.todos_alunos:
+                if RA == aluno.RA_aluno:
+                    aluno.nota = valor
+                    print("O professor deu nota", {valor}, "para o estudate", {aluno.nome}, "de RA", {aluno.RA_aluno})
+    
+    def ver_turma(self, codigo): 
+        for turma in turma.todas_turmas:
+            if codigo == turma.codigo:
+                turma.exibir_turma()
+            else:
+                print("Turma não encontrada")
+
+    def ver_alunos(self):
+        for aluno in aluno.lista_alunos:
+            print("Nome:", aluno.nome, ",", "RA:", aluno.RA_aluno)

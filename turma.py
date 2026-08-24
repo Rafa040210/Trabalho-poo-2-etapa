@@ -16,5 +16,8 @@ class Turma():
     def ver_professores(self):
         print("Nessa turma os professores que lincenciam são", {self.lista_professor})
 
+    def exibir_turma(self):
+        print("Nome turma:", self.nome, ",", "código turma:", self.codigo)
+
     
 
