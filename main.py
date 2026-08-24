@@ -20,15 +20,16 @@ Sistema = Sistema(todas_turmas= [], todos_alunos= [], todos_professores= [])
 
 Sistema.todas_turma = []
 turma_atual = Turma("Turma 1", "1")
-
+B = 1
 #for Aluno in Sistema.todos_alunos:
-    #if len(turma_atual.alunos) == 4:
-        #todas_turma.append(turma_atual)
-        #A = len(todas_turma) + 1
-        #B = 1 =+ 1
-        #turma_atual = Turma("Turma", {A}, {B})
+    #if len(turma_atual.alunos) == 5:
+        #Sistema.todas_turma.append(turma_atual)
+        #A = len(Sistema.todas_turma) + 1
+        #B += 1
+        #turma_atual = Turma(f"Turma {A}", B)
 
 
-    #Sistema.todas_turma.append(Aluno)
+    #turma_atual.alunos.append(Aluno)
 
+#if len(turma_atual.alunos) > 0:
     #Sistema.todas_turma.append(turma_atual)

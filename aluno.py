@@ -8,5 +8,19 @@ class Aluno(Pessoa):
         self.__RA_aluno = RA_aluno
         self.nota = nota
 
+    super().exibir_dados()
+
     def atuacao(self):
         print(self.nome, "está matriculado na escola Hangar")
+
+    def ver_situacao(self):
+        if self.nota >= 60 and self.nota <= 100:
+            print(self.nome, "aprovado(a) :) com nota:", self.nota)
+        elif self.nota >= 0 and self.nota <= 59:
+             print("essa nota", self.nota, "não está no paramêtro de aprovação, logo o aluno", self.nome, "está  reprovado")
+        else:
+            print("Essa nota não existe no sistema")
+
+   
+
+    
