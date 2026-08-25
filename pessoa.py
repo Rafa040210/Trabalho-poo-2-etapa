@@ -1,3 +1,4 @@
+#feito pela Rafa
 class Pessoa():
     def __init__(self, nome, data_na):
         self.nome = nome
@@ -9,8 +10,3 @@ class Pessoa():
 
     def atuacao(self):
         print(self.nome, "está na escola Hangar")
-
-
-
-    
-

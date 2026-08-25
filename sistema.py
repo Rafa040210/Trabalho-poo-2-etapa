@@ -31,7 +31,7 @@ class Sistema():
     def dar_nota(self, RA, valor):
             for aluno in self.todos_alunos:
                 if RA == aluno.RA_aluno:
-                    aluno.nota = valor
+                    aluno.nota = valor #seria boletim.nota = valor?????
                     print("O professor deu nota", {valor}, "para o estudate", {aluno.nome}, "de RA", {aluno.RA_aluno})
     
     def ver_turma(self, codigo): 

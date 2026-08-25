@@ -8,7 +8,13 @@ class Aluno(Pessoa):
         self.__RA_aluno = RA_aluno
         self.nota = nota
 
-    super().exibir_dados()
+    #def get_RA_aluno(self):
+        #return self.__RA_aluno
+
+        #como q chama em outras classes usa "aluno.get_RA_aluno()"???????
+
+    #def get_senha(self):
+        #return self.__sehna
 
     def atuacao(self):
         print(self.nome, "está matriculado na escola Hangar")
@@ -21,6 +27,3 @@ class Aluno(Pessoa):
         else:
             print("Essa nota não existe no sistema")
 
-   
-
-    
