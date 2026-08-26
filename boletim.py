@@ -1,5 +1,5 @@
 from aluno import Aluno 
-class Boletim:
+class Boletim():
         def __init__(self, notas):
               self.nota = nota
 

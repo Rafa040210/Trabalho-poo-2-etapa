@@ -1,12 +1,9 @@
-from sistema import Sistema
-
 class Turma():
     def __init__(self, nome, codigo):
         self.nome = nome
         self.codigo = codigo
         self.lista_alunos = []
       
-
     def ver_alunos(self):
         print(self.lista_alunos)
 

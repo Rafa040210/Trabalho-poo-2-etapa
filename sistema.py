@@ -1,11 +1,13 @@
 from aluno import Aluno
 from professor import Professor
 from turma import Turma
+from pessoa import Pessoa
+from boletim import Boletim
 
 
 class Sistema():
-
     def __init__(self):
+        self.pessoas = []
         self.todas_turmas = []
         self.todos_alunos = []
         self.todos_professores = []
