@@ -1,6 +1,6 @@
-from turma import Turma
 from aluno import Aluno
 from professor import Professor
+from turma import Turma
 
 
 class Sistema():
@@ -28,17 +28,13 @@ class Sistema():
 
     def dar_nota(self, RA, valor):
         for aluno in self.todos_alunos:
-            if RA == aluno.RA_aluno:
+            if RA == aluno.get__RA_aluno:
                 boletim.notas = valor 
-                print("O professor deu nota", {valor}, "para o estudate", {aluno.nome}, "de RA", {aluno.RA_aluno}".")#erro aqui
+                print("O professor deu nota", {valor}, "para o estudante", {aluno.nome}, "de RA", {aluno.get__RA_aluno},".")
+            else:
+                print("RA não encontrado")
 
     def ver_alunos(self):
-        for aluno in aluno.lista_alunos:
-            print("Nome:", aluno.nome, ",", "RA:", aluno.RA_aluno)
+        for aluno in aluno.todos_alunos: #todos_alunos
+            print("Nome:", aluno.nome, ",", "RA:", aluno.get__RA_aluno)
             
-#def ver_turma(self, codigo): 
-     #   for turma in turma.todas_turmas:
-      #      if codigo == turma.codigo:
-       #         turma.exibir_turma()
-        #    else:
-         #       print("Turma não encontrada")

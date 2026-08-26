@@ -11,6 +11,9 @@ class Professor(Pessoa):
         self.__senha = senha
         self.salario = salario
 
+    def imprimir_dados(self):
+        print(f"O professor {self.nome} possui formação em {self.formacao} cujo o salário é R${self.salario}.")
+
     def atuacao(self):
         print(self.nome, "está lincenciando no Hangar")#polimorfismo
         

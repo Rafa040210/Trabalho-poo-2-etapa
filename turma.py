@@ -5,13 +5,10 @@ class Turma():
         self.nome = nome
         self.codigo = codigo
         self.lista_alunos = []
-        self.lista_professor = []
+      
 
     def ver_alunos(self):
         print(self.lista_alunos)
-
-    def ver_professores(self):
-        print("Nessa turma os professores que lincenciam são", {self.lista_professor})
 
     def exibir_turma(self):
         print("Nome turma:", self.nome, ",", "código turma:", self.codigo)
