@@ -1,13 +1,12 @@
 from aluno import Aluno 
 class Boletim:
-        def __init__(self, ano, RA_aluno_boletim, turma_aluno_boletim, notas, situacao):
-              self.ano = ano
-              self.RA_aluno_boletim = RA_aluno_boletim
-              self.turma_aluno_boletim = turma_aluno_boletim
-              self.notas = notas
-              self.situacao =situacao 
-              
-              
-        if self.RA_aluno_boletim == aluno.RA_aluno:#enqanto o RA estiver errado
-                
-                
+        def __init__(self, notas):
+              self.nota = nota
+
+        def ver_situacao(self):
+                if self.nota >= 60 and self.nota <= 100:
+                        print("Você está aprovado(a) :) com nota:", self.nota)
+                elif self.nota >= 0 and self.nota <= 59:
+                        print("Essa nota", self.nota, "não está no paramêtro de aprovação, logo VOCÊ está reprovado.")
+                else:
+                        print("Essa nota não existe no sistema")

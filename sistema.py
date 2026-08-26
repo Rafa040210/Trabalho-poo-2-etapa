@@ -5,7 +5,7 @@ from professor import Professor
 
 class Sistema():
 
-    def __init__(self): #todas_turmas, todos_alunos, todos_professores
+    def __init__(self):
         self.todas_turmas = []
         self.todos_alunos = []
         self.todos_professores = []
@@ -29,7 +29,7 @@ class Sistema():
     def dar_nota(self, RA, valor):
         for aluno in self.todos_alunos:
             if RA == aluno.RA_aluno:
-                aluno.nota = valor #seria boletim.nota = valor?????
+                boletim.notas = valor 
                 print("O professor deu nota", {valor}, "para o estudate", {aluno.nome}, "de RA", {aluno.RA_aluno}".")#erro aqui
 
     def ver_alunos(self):
