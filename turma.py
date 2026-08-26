@@ -7,8 +7,8 @@ class Turma():
         self.lista_alunos = []
         self.lista_professor = []
     
-    def ver_turmas(self, todas_turmas):
-        print(Sistema.todas_turmas)
+    #def ver_turmas(self): #Sistema.todas_turmas
+     #   print(Sistema.todas_turmas)
 
     def ver_alunos(self):
         print(self.lista_alunos)
