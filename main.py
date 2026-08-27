@@ -26,7 +26,7 @@ if login == 1:#criando aluno
 
         obj_aluno = Aluno(nome, data_na, senha, ra)
         sistema.cadastrar_aluno(obj_aluno)
-        sistema.pessoa.append(obj_aluno)
+        sistema.pessoas.append(obj_aluno)
         print("Login feito com sucesso!")#colocar cor
 
 elif login == 2:#criando professor
@@ -68,7 +68,7 @@ for aluno in sistema.todos_alunos:
         B += 1
         turma = Turma(f"Turma {A}", B)
 
-    turma.alunos.append(Aluno)
+        turma.lista_aluno.append(Aluno)
 
 if len(turma.lista_alunos) > 0:
     sistema.todas_turma.append(turma)
@@ -86,12 +86,13 @@ while True:
             opcao_aluno = int(input("Opções para alunos: \n 1)Encontrar a sua turma\n 2)Ver situação do seu boletim"))
         
             if opcao_aluno == 1:
+                codigo = int(input("Informe cod:"))
 
-                sistema.buscar_turmas(int(input("Informe cod:")))
+                print(sistema.buscar_turmas(codigo))
 
             elif opcao_aluno == 2:
 
-                obj_aluno.boletim.ver_situacao()
+                print(obj_aluno.boletim.ver_situacao())
 
             else:
                 print("Valor inválido!")
@@ -101,30 +102,34 @@ while True:
             opcao_prof = int(input("Opções para professores: \n 1)Encontrar a sua turma \n 2)Ver seus dados\n 3)Ver alunos \n4)Dar nota para aluno"))
 
             if opcao_prof == 1:
+                codigo = int(input("Informe cod:"))
+                
 
-                sistema.buscar_turmas(int(input("Informe cod:")))
+                print(sistema.buscar_turmas(codigo))
 
             elif opcao_prof == 2:
 
-                obj_prof.imprimir_dados()
+                print(obj_prof.imprimir_dados())
 
             elif opcao_prof == 3:
 
                 tipo = int(input("Deseja ver: \n1)todos os alunos da sua turma \n2)todos os alunos da escola"))
                 if tipo == 1:
 
-                    turma.ver_alunos()
+                    print(turma.ver_alunos())
 
                 elif tipo == 2:
 
-                    sistema.ver_alunos()
+                    print(sistema.ver_alunos())
 
                 else:
                     print("Valor inválido!")
 
             elif opcao_prof == 4:
+                RA = int(input("Informe o RA do aluno"))
+                valor = int(input("Informe a nota"))
 
-                sistema.dar_nota()
+                print(sistema.dar_nota(RA, valor))
 
             else:
                 print("Valor inválido!")

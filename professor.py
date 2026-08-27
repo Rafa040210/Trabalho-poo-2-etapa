@@ -15,8 +15,8 @@ class Professor(Pessoa):
         print(self.nome, " é um professor que está lincenciando no Hangar.")#polimorfismo
         
     def get_siape(self):#Ariely
-        return self.__siape
+        return self._siape
 
 
     def get_senha(self):#Ariely
-        return self.__senha
+        return self._senha
