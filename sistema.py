@@ -30,14 +30,14 @@ class Sistema():
 
     def dar_nota(self, RA, valor):
         for aluno in self.todos_alunos:
-            if RA == aluno.get_RA_aluno:
+            if RA == aluno._RA_aluno:
                 aluno.notas = valor 
-                print("O professor deu nota", {valor}, "para o estudante", {aluno.nome}, "de RA", {aluno.get_RA_aluno},".")
+                print("O professor deu nota", {valor}, "para o estudante", {aluno.nome}, "de RA", {aluno._RA_aluno},".")
             else:
                 print("RA não encontrado")
                 break
 
     def ver_alunos(self):
         for aluno in aluno.todos_alunos: #todos_alunos
-            print("Nome:", aluno.nome, ",", "RA:", aluno.get_RA_aluno)
+            print("Nome:", aluno.nome, ",", "RA:", aluno._RA_aluno)
             

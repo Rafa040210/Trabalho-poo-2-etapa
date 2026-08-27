@@ -8,52 +8,57 @@ from professor import Professor
 
 sistema = Sistema()
 
-print("Bem - Vindo(a) ao Sistema Educacional de Escola de Hangar!")#colocar cor
-login = int(input("Faça seu login: \n1)Aluno(a) \n2)Professor(a)")) 
-if login == 1:#criando aluno
-    quant_aluno = int(input("Informe a quantidade de alunos que você deseja cadastrar:"))
-    for i in range(0, quant_aluno):
-        nome = input("Informe seu nome:")
+print("Bem - Vindo(a) ao Sistema Educacional de Escola de Hangar!")#colocar cor]
+while True:
+    resposta = input("Deseja realizar logins (s/n)?")
+    if resposta == "s" or resposta == "S":
+        login = int(input("Faça seu login: \n1)Aluno(a) \n2)Professor(a)")) 
+        if login == 1:#criando aluno
+            quant_aluno = int(input("Informe a quantidade de alunos que você deseja cadastrar:"))
+            for i in range(0, quant_aluno):
+                nome = input("Informe seu nome:")
 
-        dia = int(input("Informe sua data de nascimento(dd/mm/aaaa):\n-Informe o dia:"))
-        mes = int(input("-Informe o mês:"))
-        ano = int(input("-Informe o ano:"))
-        data_na = datetime.date(ano, mes, dia)
+                dia = int(input("Informe sua data de nascimento(dd/mm/aaaa):\n-Informe o dia:"))
+                mes = int(input("-Informe o mês:"))
+                ano = int(input("-Informe o ano:"))
+                data_na = datetime.date(ano, mes, dia)
 
-        ra = input("Informe seu RA:")
+                ra = input("Informe seu RA:")
 
-        senha = input("Crie uma senha:")
+                senha = input("Crie uma senha:")
 
-        obj_aluno = Aluno(nome, data_na, senha, ra)
-        sistema.cadastrar_aluno(obj_aluno)
-        sistema.pessoas.append(obj_aluno)
-        print("Login feito com sucesso!")#colocar cor
+                obj_aluno = Aluno(nome, data_na, senha, ra)
+                sistema.cadastrar_aluno(obj_aluno)
+                sistema.pessoas.append(obj_aluno)
+                print("Login feito com sucesso!")#colocar cor
 
-elif login == 2:#criando professor
-    quant_prof = int(input("Informe a quantidade de professores que você deseja cadastrar:"))
-    for i in range(0, quant_prof):
-        nome = input("Informe seu nome:")
+        elif login == 2:#criando professor
+            quant_prof = int(input("Informe a quantidade de professores que você deseja cadastrar:"))
+            for i in range(0, quant_prof):
+                nome = input("Informe seu nome:")
 
-        dia = int(input("Informe sua data de nascimento(dd/mm/aaaa):\n-Informe o dia:"))
-        mes = int(input("-Informe o mês:"))
-        ano = int(input("-Informe o ano:"))
-        data_na = datetime.date(ano, mes, dia)
+                dia = int(input("Informe sua data de nascimento(dd/mm/aaaa):\n-Informe o dia:"))
+                mes = int(input("-Informe o mês:"))
+                ano = int(input("-Informe o ano:"))
+                data_na = datetime.date(ano, mes, dia)
 
-        formacao = input("Informe sua formação:")
+                formacao = input("Informe sua formação:")
 
-        siape = input("Informe seu SIAPE:")
+                siape = input("Informe seu SIAPE:")
 
-        salario = input("Informe seu salário:")
+                salario = input("Informe seu salário:")
 
-        senha = input("Crie uma senha:")
+                senha = input("Crie uma senha:")
 
-        obj_prof = Professor(nome, data_na, formacao, siape, salario, senha)
-        sistema.cadastrar_professor(obj_prof)
-        sistema.pessoas.append(obj_prof)
-        print("Login feito com sucesso!")#colocar cor    
+                obj_prof = Professor(nome, data_na, formacao, siape, salario, senha)
+                sistema.cadastrar_professor(obj_prof)
+                sistema.pessoas.append(obj_prof)
+                print("Login feito com sucesso!")#colocar cor    
 
-else:
-    print("Valor inválido!")
+        else:
+            print("Valor inválido!")
+    else:
+        break
 
 for pessoa in sistema.pessoas:
     pessoa.atuacao()#polimorfismo
@@ -72,7 +77,8 @@ for aluno in sistema.todos_alunos:
 
 if len(turma.lista_alunos) > 0:
     sistema.todas_turma.append(turma)
-    turma.exibir_turma()#permite o usuário ver o código da turma para usar depois
+    turma.exibir_turma()#permite o usuário ver o código da turma para usar depois  
+    #não está aparecendo
     
 
 
@@ -126,8 +132,8 @@ while True:
                     print("Valor inválido!")
 
             elif opcao_prof == 4:
-                RA = int(input("Informe o RA do aluno"))
-                valor = int(input("Informe a nota"))
+                RA = int(input("Informe o RA do aluno:"))
+                valor = int(input("Informe a nota:"))
 
                 print(sistema.dar_nota(RA, valor))
 
