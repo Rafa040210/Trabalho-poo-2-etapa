@@ -2,15 +2,12 @@ from pessoa import Pessoa
 from boletim import Boletim
 
 class Aluno(Pessoa):
-    def __init__(self, nome, data_na, senha, RA_aluno, notas=0):
+    def __init__(self, nome, data_na, senha, RA_aluno, notas):
         super().__init__(nome, data_na)
 
         self._senha = senha
-        self._RA_aluno = RA_aluno
+        self.RA_aluno = RA_aluno
         self.boletim = Boletim(notas)
-
-    def get_RA_aluno(self):
-        return self._RA_aluno
 
     def get_senha(self):
         return self._senha

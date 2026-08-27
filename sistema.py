@@ -21,23 +21,28 @@ class Sistema():
     def cadastrar_turma(self, Turma):
         self.todas_turmas.append(Turma)
 
-    def buscar_turmas(self, codigo):#método para encontrar uma turma no sistema
+    def buscar_turmas(self, codigo, turma):#método para encontrar uma turma no sistema
         for turma in self.todas_turmas:
             if turma.codigo == codigo:
-                return turma.exibir_turma()
+                turma.exibir_turma()
             else:
                 print("Turma não encontrada!")
 
     def dar_nota(self, RA, valor):
         for aluno in self.todos_alunos:
-            if RA == aluno._RA_aluno:
+            if RA == aluno.RA_aluno:
                 aluno.notas = valor 
-                print("O professor deu nota", {valor}, "para o estudante", {aluno.nome}, "de RA", {aluno._RA_aluno},".")
+                print("O professor deu nota", valor, "para o estudante", aluno.nome, "de RA", aluno.RA_aluno,".")
             else:
                 print("RA não encontrado")
                 break
 
     def ver_alunos(self):
-        for aluno in aluno.todos_alunos: #todos_alunos
-            print("Nome:", aluno.nome, ",", "RA:", aluno._RA_aluno)
+        for aluno in self.todos_alunos: #todos_alunos
+            print("Nome:", aluno.nome, ",", "RA:", aluno.RA_aluno)
+
+    def ver_alunos_turma(self, RA, turma):
+            for aluno in turma.lista_alunos:
+                if RA == aluno.RA_aluno:
+                    print("Nome:", aluno.nome, ",", "RA:", aluno.RA_aluno)
             

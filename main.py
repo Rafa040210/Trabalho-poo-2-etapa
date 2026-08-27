@@ -23,11 +23,11 @@ while True:
                 ano = int(input("-Informe o ano:"))
                 data_na = datetime.date(ano, mes, dia)
 
-                ra = input("Informe seu RA:")
+                RA_aluno = int(input("Informe seu RA:"))
 
                 senha = input("Crie uma senha:")
 
-                obj_aluno = Aluno(nome, data_na, senha, ra)
+                obj_aluno = Aluno(nome, data_na, senha, RA_aluno, 0)
                 sistema.cadastrar_aluno(obj_aluno)
                 sistema.pessoas.append(obj_aluno)
                 print("Login feito com sucesso!")#colocar cor
@@ -44,9 +44,9 @@ while True:
 
                 formacao = input("Informe sua formação:")
 
-                siape = input("Informe seu SIAPE:")
+                siape = int(input("Informe seu SIAPE:"))
 
-                salario = input("Informe seu salário:")
+                salario = float(input("Informe seu salário:"))
 
                 senha = input("Crie uma senha:")
 
@@ -64,21 +64,20 @@ for pessoa in sistema.pessoas:
     pessoa.atuacao()#polimorfismo
 
 #Criando turmas
-turma = Turma("Turma 1", "1")
+turma = Turma("Turma 1", 1)
 B = 1
 for aluno in sistema.todos_alunos:
     if len(turma.lista_alunos) == 5:
         sistema.todas_turma.append(turma)
         A = len(sistema.todas_turma) + 1
-        B += 1
+        B + 1
         turma = Turma(f"Turma {A}", B)
 
         turma.lista_aluno.append(Aluno)
 
+
 if len(turma.lista_alunos) > 0:
     sistema.todas_turma.append(turma)
-    turma.exibir_turma()#permite o usuário ver o código da turma para usar depois  
-    #não está aparecendo
     
 
 
@@ -93,12 +92,14 @@ while True:
         
             if opcao_aluno == 1:
                 codigo = int(input("Informe cod:"))
+                turma = input("Qual é turma:")
 
-                print(sistema.buscar_turmas(codigo))
+
+                sistema.buscar_turmas(codigo, turma)
 
             elif opcao_aluno == 2:
 
-                print(obj_aluno.boletim.ver_situacao())
+                obj_aluno.boletim.ver_situacao()
 
             else:
                 print("Valor inválido!")
@@ -109,33 +110,36 @@ while True:
 
             if opcao_prof == 1:
                 codigo = int(input("Informe cod:"))
+                turma = input("Qual é turma:")
                 
 
-                print(sistema.buscar_turmas(codigo))
+                sistema.buscar_turmas(codigo, turma)
 
             elif opcao_prof == 2:
 
-                print(obj_prof.imprimir_dados())
+                obj_prof.imprimir_dados() #funcionou
 
             elif opcao_prof == 3:
 
                 tipo = int(input("Deseja ver: \n1)todos os alunos da sua turma \n2)todos os alunos da escola"))
                 if tipo == 1:
+                    RA = int(input("Informe o RA do aluno:"))
+                    turma = input("Qual é turma:")
 
-                    print(turma.ver_alunos())
+                    sistema.ver_alunos_turma(RA, turma)
 
                 elif tipo == 2:
 
-                    print(sistema.ver_alunos())
+                    sistema.ver_alunos() #funcionou
 
                 else:
                     print("Valor inválido!")
 
             elif opcao_prof == 4:
                 RA = int(input("Informe o RA do aluno:"))
-                valor = int(input("Informe a nota:"))
+                valor = float(input("Informe a nota:"))
 
-                print(sistema.dar_nota(RA, valor))
+                sistema.dar_nota(RA, valor) #funcionou
 
             else:
                 print("Valor inválido!")
