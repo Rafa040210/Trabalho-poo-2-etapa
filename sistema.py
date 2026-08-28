@@ -41,8 +41,14 @@ class Sistema():
         for aluno in self.todos_alunos: #todos_alunos
             print("Nome:", aluno.nome, ",", "RA:", aluno.RA_aluno)
 
-    def ver_alunos_turma(self, RA, turma):
-            for aluno in turma.lista_alunos:
-                if RA == aluno.RA_aluno:
-                    print("Nome:", aluno.nome, ",", "RA:", aluno.RA_aluno)
-            
+    def ver_situacao(self, RA):
+        for aluno in self.todos_alunos:
+            if RA == aluno.RA_aluno:
+                if aluno.notas >= 60 and aluno.notas <= 100:
+                    print("Você está aprovado(a) :) com nota:", aluno.notas)
+                elif aluno.notas >= 0 and aluno.notas <= 59:
+                        print("Essa nota", aluno.notas, "não está no paramêtro de aprovação, logo VOCÊ está reprovado.")
+                else:
+                    print("\033[31mEssa nota não existe no sistema\033[m")
+
+        

@@ -8,17 +8,17 @@ from professor import Professor
 
 sistema = Sistema()
 
-print("Bem - Vindo(a) ao Sistema Educacional de Escola de Hangar!")#colocar cor]
+print("\033[35mBem - Vindo(a) ao Sistema Educacional de Escola de Hangar!\033[m")
 while True:
-    resposta = input("Deseja realizar logins (s/n)?")
+    resposta = input("\033[37mDeseja realizar logins (s/n)?\033[m")
     if resposta == "s" or resposta == "S":
-        login = int(input("Faça seu login: \n1)Aluno(a) \n2)Professor(a)")) 
+        login = int(input("\033[36mFaça seu login: \n1)Aluno(a): \n2)Professor(a): \n:\033[m")) 
         if login == 1:#criando aluno
             quant_aluno = int(input("Informe a quantidade de alunos que você deseja cadastrar:"))
             for i in range(0, quant_aluno):
-                nome = input("Informe seu nome:")
+                nome = input("Informe o nome do aluno:")
 
-                dia = int(input("Informe sua data de nascimento(dd/mm/aaaa):\n-Informe o dia:"))
+                dia = int(input("Informe a data de nascimento(dd/mm/aaaa) do aluno:\n-Informe o dia:"))
                 mes = int(input("-Informe o mês:"))
                 ano = int(input("-Informe o ano:"))
                 data_na = datetime.date(ano, mes, dia)
@@ -30,41 +30,42 @@ while True:
                 obj_aluno = Aluno(nome, data_na, senha, RA_aluno, 0)
                 sistema.cadastrar_aluno(obj_aluno)
                 sistema.pessoas.append(obj_aluno)
-                print("Login feito com sucesso!")#colocar cor
+                print("\033[32mLogin feito com sucesso!\033[m")
 
         elif login == 2:#criando professor
             quant_prof = int(input("Informe a quantidade de professores que você deseja cadastrar:"))
             for i in range(0, quant_prof):
-                nome = input("Informe seu nome:")
+                nome = input("Informe o nome do professor:")
 
-                dia = int(input("Informe sua data de nascimento(dd/mm/aaaa):\n-Informe o dia:"))
+                dia = int(input("Informe a data de nascimento(dd/mm/aaaa) do professor:\n-Informe o dia:"))
                 mes = int(input("-Informe o mês:"))
                 ano = int(input("-Informe o ano:"))
                 data_na = datetime.date(ano, mes, dia)
 
-                formacao = input("Informe sua formação:")
+                formacao = input("Informe a formação do professor:")
 
-                siape = int(input("Informe seu SIAPE:"))
+                siape = int(input("Informe o SIAPE do professor:"))
 
-                salario = float(input("Informe seu salário:"))
+                salario = float(input("Informe o salário do professor:"))
 
-                senha = input("Crie uma senha:")
+                senha = input("Qual é a senha do professor:")
 
                 obj_prof = Professor(nome, data_na, formacao, siape, salario, senha)
                 sistema.cadastrar_professor(obj_prof)
                 sistema.pessoas.append(obj_prof)
-                print("Login feito com sucesso!")#colocar cor    
+                print("\033[32mLogin feito com sucesso!\033[m")   
 
         else:
-            print("Valor inválido!")
+            print("\033[31mValor inválido!\033[m")
     else:
         break
 
 for pessoa in sistema.pessoas:
-    pessoa.atuacao()#polimorfismo
+    pessoa.atuacao()
 
 #Criando turmas
 turma = Turma("Turma 1", 1)
+sistema.cadastrar_turma(turma)
 B = 1
 for aluno in sistema.todos_alunos:
     if len(turma.lista_alunos) == 5:
@@ -82,66 +83,66 @@ if len(turma.lista_alunos) > 0:
 
 
 while True:
-    confirmacao = input("Deseja ir para a sua aba do site? (s/n)")
+    confirmacao = input("\033[36mDeseja ir para a sua aba do site? (s/n)\033[m")
     if confirmacao == "s":
-        tipo_usuario = int(input("Você é: \n1)aluno \n2)professor"))
+        tipo_usuario = int(input("\033[33mQual é o usuário: \n1)aluno: \n2)professor: \n:\033[m"))
 
-        if tipo_usuario == 1:#para aluno
+        if tipo_usuario == 1:
             print("O que você deseja fazer?")
-            opcao_aluno = int(input("Opções para alunos: \n 1)Encontrar a sua turma\n 2)Ver situação do seu boletim"))
+            opcao_aluno = int(input("\033[34mOpções para alunos: \n 1)Encontrar a sua turma: \n 2)Ver situação do seu boletim: \n:\033[m"))
         
             if opcao_aluno == 1:
-                codigo = int(input("Informe cod:"))
-                turma = input("Qual é turma:")
+                codigo = int(input("Informe o codigo da turma que você desja procurar:"))
+                turma = input("Qual é turma que você deseja procurar:")
 
 
                 sistema.buscar_turmas(codigo, turma)
 
             elif opcao_aluno == 2:
+                RA = int(input("Informe o RA do aluno:"))
 
-                obj_aluno.boletim.ver_situacao()
+                sistema.ver_situacao(RA)
 
             else:
-                print("Valor inválido!")
+                print("\033[31mValor inválido!\033[m")
 
-        elif tipo_usuario == 2:#para professor
+        elif tipo_usuario == 2:
             print("O que você deseja fazer?")
-            opcao_prof = int(input("Opções para professores: \n 1)Encontrar a sua turma \n 2)Ver seus dados\n 3)Ver alunos \n4)Dar nota para aluno"))
+            opcao_prof = int(input("\033[33mOpções para professores: \n 1)Encontrar a sua turma: \n 2)Ver seus dados: \n 3)Ver alunos: \n4)Dar nota para aluno: \n:\033[m"))
 
             if opcao_prof == 1:
-                codigo = int(input("Informe cod:"))
-                turma = input("Qual é turma:")
+                codigo = int(input("Informe o codigo da turma que você desja procurar:"))
+                turma = input("Qual é turma que você deseja procurar:")
                 
 
                 sistema.buscar_turmas(codigo, turma)
 
             elif opcao_prof == 2:
 
-                obj_prof.imprimir_dados() #funcionou
+                obj_prof.imprimir_dados() 
 
             elif opcao_prof == 3:
 
-                tipo = int(input("Deseja ver: \n1)todos os alunos da sua turma \n2)todos os alunos da escola"))
+                tipo = int(input("Deseja ver: \n1)todos os alunos da sua turma \n2)todos os alunos da escola \n:"))
                 if tipo == 1:
                     RA = int(input("Informe o RA do aluno:"))
-                    turma = input("Qual é turma:")
 
-                    sistema.ver_alunos_turma(RA, turma)
+                    turma.ver_alunos_turma(RA)
 
                 elif tipo == 2:
 
-                    sistema.ver_alunos() #funcionou
+                    sistema.ver_alunos() 
 
                 else:
                     print("Valor inválido!")
 
             elif opcao_prof == 4:
                 RA = int(input("Informe o RA do aluno:"))
-                valor = float(input("Informe a nota:"))
+                valor = float(input("Informe a nota que o aluno tirou:"))
 
-                sistema.dar_nota(RA, valor) #funcionou
+                sistema.dar_nota(RA, valor) 
 
             else:
-                print("Valor inválido!")
+                print("\033[31mValor inválido!\033[m")
     else:    
         break
