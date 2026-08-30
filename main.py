@@ -121,8 +121,8 @@ while True:
 
                 tipo = int(input("Deseja ver: \n1)todos os alunos da sua turma \n2)todos os alunos da escola \n:"))
                 if tipo == 1:
-                    
-                    turma.ver_alunos_turma()
+
+                    turma.ver_alunos_turma() # não está funcionando
 
                 elif tipo == 2:
 

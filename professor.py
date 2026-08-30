@@ -14,9 +14,9 @@ class Professor(Pessoa):
     def atuacao(self):
         print(self.nome, " é um professor que está lincenciando no Hangar.")#polimorfismo
         
-    def get_siape(self):#Ariely
+    def get_siape(self):
         return self._siape
 
 
-    def get_senha(self):#Ariely
+    def get_senha(self):
         return self._senha

@@ -12,4 +12,6 @@ class Turma():
 
     def ver_alunos_turma(self):
         for aluno in self.lista_alunos:
-            print("Nome:", aluno.nome, ",", "RA:", aluno.RA_aluno)
+                return aluno.nome,  aluno.RA_aluno
+
+    
