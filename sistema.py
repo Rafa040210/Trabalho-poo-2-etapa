@@ -21,7 +21,7 @@ class Sistema():
     def cadastrar_turma(self, Turma):
         self.todas_turmas.append(Turma)
 
-    def buscar_turmas(self, codigo, turma):#método para encontrar uma turma no sistema
+    def buscar_turmas(self, codigo):#método para encontrar uma turma no sistema
         for turma in self.todas_turmas:
             if turma.codigo == codigo:
                 turma.exibir_turma()
@@ -35,7 +35,6 @@ class Sistema():
                 print("O professor deu nota", valor, "para o estudante", aluno.nome, "de RA", aluno.RA_aluno,".")
             else:
                 print("RA não encontrado")
-                break
 
     def ver_alunos(self):
         for aluno in self.todos_alunos: #todos_alunos

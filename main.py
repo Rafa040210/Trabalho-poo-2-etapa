@@ -58,7 +58,7 @@ while True:
         else:
             print("\033[31mValor inválido!\033[m")
     else:
-        break
+        break#teria q ir para a aba do site
 
 for pessoa in sistema.pessoas:
     pessoa.atuacao()
@@ -92,11 +92,9 @@ while True:
             opcao_aluno = int(input("\033[34mOpções para alunos: \n 1)Encontrar a sua turma: \n 2)Ver situação do seu boletim: \n:\033[m"))
         
             if opcao_aluno == 1:
-                codigo = int(input("Informe o codigo da turma que você desja procurar:"))
-                turma = input("Qual é turma que você deseja procurar:")
+                codigo = int(input("Informe o código da turma que você deseja procurar:"))
 
-
-                sistema.buscar_turmas(codigo, turma)
+                sistema.buscar_turmas(codigo)
 
             elif opcao_aluno == 2:
                 RA = int(input("Informe o RA do aluno:"))
@@ -112,10 +110,8 @@ while True:
 
             if opcao_prof == 1:
                 codigo = int(input("Informe o codigo da turma que você desja procurar:"))
-                turma = input("Qual é turma que você deseja procurar:")
-                
 
-                sistema.buscar_turmas(codigo, turma)
+                sistema.buscar_turmas(codigo)
 
             elif opcao_prof == 2:
 
@@ -125,9 +121,8 @@ while True:
 
                 tipo = int(input("Deseja ver: \n1)todos os alunos da sua turma \n2)todos os alunos da escola \n:"))
                 if tipo == 1:
-                    RA = int(input("Informe o RA do aluno:"))
-
-                    turma.ver_alunos_turma(RA)
+                    
+                    turma.ver_alunos_turma()
 
                 elif tipo == 2:
 
@@ -144,5 +139,8 @@ while True:
 
             else:
                 print("\033[31mValor inválido!\033[m")
-    else:    
+    elif confirmacao == "n":
         break
+        
+    else:    
+        print("Valor inválido!")

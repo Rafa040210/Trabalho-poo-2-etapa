@@ -4,8 +4,8 @@ class Professor(Pessoa):
     def __init__(self, nome, data_na, formacao, siape, salario, senha):
         super().__init__(nome, data_na)
         self.formacao = formacao
-        self.__siape = siape
-        self.__senha = senha
+        self._siape = siape
+        self._senha = senha
         self.salario = salario
 
     def imprimir_dados(self):
