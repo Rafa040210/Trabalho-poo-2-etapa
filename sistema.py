@@ -49,3 +49,8 @@ class Sistema():
                         print("Essa nota", aluno.notas, "não está no paramêtro de aprovação, logo VOCÊ está reprovado.")
                 else:
                     print("\033[31mEssa nota não existe no sistema\033[m")
+
+
+
+    
+  

@@ -68,13 +68,13 @@ while True:
         sistema.cadastrar_turma(turma)
         b = 1
         for aluno in sistema.todos_alunos:
-            if len(turma.lista_alunos) == 5:
+            if len(turma.lista_alunos) == 2:
                 sistema.todas_turma.append(turma)
                 a = len(sistema.todas_turma) + 1
-                b += 1
+                b = b + 1
                 turma = Turma(f"Turma {a}", b)
 
-                turma.lista_aluno.append(Aluno)
+                turma.lista_aluno.append(obj_aluno)
 
 
         if len(turma.lista_alunos) > 0:
@@ -83,64 +83,68 @@ while True:
             
 
         while True:
-            confirmacao = input("\033[36mDeseja ir para a sua aba do site? (s/n)\033[m")
-            if confirmacao == "s":
-                tipo_usuario = int(input("\033[33mQual é o usuário: \n1)aluno: \n2)professor: \n:\033[m"))
+                confirmacao = input("\033[36mDeseja ir para a sua aba do site? (s/n)\033[m")
+                if confirmacao == "s":
+                    tipo_usuario = int(input("\033[33mQual é o usuário: \n1)aluno: \n2)professor: \n:\033[m"))
 
-                if tipo_usuario == 1:
-                    print("O que você deseja fazer?")
-                    opcao_aluno = int(input("\033[34mOpções para alunos: \n 1)Encontrar a sua turma: \n 2)Ver situação do seu boletim: \n:\033[m"))
-                
-                    if opcao_aluno == 1:
-                        codigo = int(input("Informe o código da turma que você deseja procurar:"))
+                    if tipo_usuario == 1:
+                        print("O que você deseja fazer?")
+                        opcao_aluno = int(input("\033[34mOpções para alunos: \n 1)Encontrar a sua turma: \n 2)Ver situação do seu boletim: \n:\033[m"))
+                    
+                        if opcao_aluno == 1:
+                            codigo = int(input("Informe o código da turma que você deseja procurar:"))
 
-                        sistema.buscar_turmas(codigo)
+                            sistema.buscar_turmas(codigo)
 
-                    elif opcao_aluno == 2:
-                        ra = int(input("Informe o RA do aluno:"))
+                        elif opcao_aluno == 2:
+                            ra = int(input("Informe o RA do aluno:"))
 
-                        sistema.ver_situacao(ra)
-
-                    else:
-                        print("\033[31mValor inválido!\033[m")
-
-                elif tipo_usuario == 2:
-                    print("O que você deseja fazer?")
-                    opcao_prof = int(input("\033[33mOpções para professores: \n 1)Encontrar a sua turma: \n 2)Ver seus dados: \n 3)Ver alunos: \n4)Dar nota para aluno: \n:\033[m"))
-
-                    if opcao_prof == 1:
-                        codigo = int(input("Informe o codigo da turma que você desja procurar:"))
-
-                        sistema.buscar_turmas(codigo)
-
-                    elif opcao_prof == 2:
-
-                        obj_prof.imprimir_dados() 
-
-                    elif opcao_prof == 3:
-
-                        tipo = int(input("Deseja ver: \n1)todos os alunos da sua turma \n2)todos os alunos da escola \n:"))
-                        if tipo == 1:
-
-                            turma.ver_alunos_turma() # não está funcionando
-
-                        elif tipo == 2:
-
-                            sistema.ver_alunos() 
+                            sistema.ver_situacao(ra)
 
                         else:
-                            print("Valor inválido!")
+                            print("\033[31mValor inválido!\033[m")
 
-                    elif opcao_prof == 4:
-                        ra = int(input("Informe o RA do aluno:"))
-                        valor = float(input("Informe a nota que o aluno tirou:"))
+                    elif tipo_usuario == 2:
+                        print("O que você deseja fazer?")
+                        opcao_prof = int(input("\033[33mOpções para professores: \n 1)Encontrar a sua turma: \n 2)Ver seus dados: \n 3)Ver alunos: \n4)Dar nota para aluno: \n:\033[m"))
 
-                        sistema.dar_nota(ra, valor) 
+                        if opcao_prof == 1:
+                            codigo = int(input("Informe o codigo da turma que você desja procurar:"))
 
-                    else:
-                        print("\033[31mValor inválido!\033[m")
-            elif confirmacao == "n":
-                break#não consegui fazer voltar para a pergunta de fazer logins, logo a pessoa sai do programa direto
-                
-            else:    
-                print("Valor inválido!")
+                            sistema.buscar_turmas(codigo)
+
+                        elif opcao_prof == 2:
+
+                            obj_prof.imprimir_dados() 
+
+                        elif opcao_prof == 3:
+                            
+                            tipo = int(input("Deseja ver: \n1)todos os alunos da sua turma \n2)todos os alunos da escola \n:"))
+
+                            if tipo == 1:
+                                codigo = int(input("Informe o código da sala:"))
+
+                                turma.ver_alunos_turma(codigo) # não está funcionando
+
+                            elif tipo == 2:
+
+                                sistema.ver_alunos() 
+
+                            else:
+                                print("Valor inválido!")
+
+                        elif opcao_prof == 4:
+                            ra = int(input("Informe o RA do aluno:"))
+                            valor = float(input("Informe a nota que o aluno tirou:"))
+
+                            sistema.dar_nota(ra, valor) 
+
+                        else:
+                            print("\033[31mValor inválido!\033[m")
+                elif confirmacao == "n":
+                    break
+                    
+                else:    
+                    print("Valor inválido!")
+
+            

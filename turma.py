@@ -10,8 +10,10 @@ class Turma():
     def exibir_turma(self):
         print("O Nome da sua turma é:", self.nome, ",", " e o código da turma é:", self.codigo)
 
-    def ver_alunos_turma(self):
-        for aluno in self.lista_alunos:
-            print("Nome:", aluno.nome, ",", "RA:", aluno.RA_aluno)
-            
-                #return aluno.nome,  aluno.RA_aluno
+
+    def ver_alunos_turma(self, codigo):
+        if codigo == self.codigo:
+            for  aluno in self.lista_alunos:
+                print("Nome:", aluno.nome, ",", "RA:", aluno.RA_aluno)
+
+  
